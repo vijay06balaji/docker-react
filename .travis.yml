@@ -1,0 +1,10 @@
+sudo: required # required permission for implementing build
+
+services:
+  - docker
+
+before_install:
+  - docker build -t vijay06balaji/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true ijay06balaji/docker-react npm run test -- --coverage
